@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en" dir="ltr">
+  <head>
+    <link rel="stylesheet" href="{% static 'about.css' %}?{% now "U" %}">
+    <meta charset="utf-8">
+    <title></title>
+    <style media="screen">
+      body{
+        background: url(BG.png) no-repeat center center fixed;
+        -webkit-background-size: cover;
+        -moz-background-size: cover;
+        -o-background-size: cover;
+        background-size: cover;
+        height: 100%;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+      }
+      ul {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+        background-color: #333;
+      }
+    
+      li {
+        float: left;
+      }
+    
+      li a {
+        display: block;
+        color: white;
+        text-align: center;
+        padding: 14px 16px;
+        text-decoration: none;
+      }
+    
+      li a:hover {
+        background-color: #111;
+      }
+      body{
+        text-align:center;
+      }
+      .move{
+        font-weight:bold;
+        font-size:20px;
+        color:#751443;
+      }
+      .Contact{
+        background:rgba(255, 255, 255,0.8);
+        width: 350px;
+        height: 200px;
+        position: absolute;
+        transform: translate(55%,55%);
+        font-weight:bolder;
+      }
+    </style>
+  </head>
+  <body>
+    <ul>
+      <li><a class="active" href="../">Home</a></li>
+    
+      <li><a href="#contact">Contact</a></li>
+      <li><a href="../about">About</a></li>
+    </ul>
+    <h1>AGROLECT</h1>
+    <marquee class="move">We strive to make your life better!!</marquee>
+    <div class="Contact">
+      <p>If you have any queries feel free to contact us </p><br>
+      <p>Email:agrolectorg2022@gmail.com</p><br>
+      <p>Phone no:44-34567891</p><br>
+    </div>
+
+
+  </body>
+</html>

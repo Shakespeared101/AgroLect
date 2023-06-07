@@ -1,0 +1,63 @@
+{% load static %}
+<!DOCTYPE html>
+<head>
+   <title>Registeration Page</title>
+   <link rel="preconnect" href="https://fonts.googleapis.com"> 
+   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> 
+   <link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@100&display=swap" rel="stylesheet">
+   <!--<link rel="stylesheet" href ="signup.css">-->
+   <link rel="stylesheet" href="{% static 'signup.css' %}?{% now "U" %}"> 
+</head>
+<body>
+  
+  {% if messages%}
+  {% for message in messages %}
+      <div id="alert" class="{{message.tags}}">
+          <span class="closebtn">&times;</span>  
+          <strong>
+            {% if message.tags == "alert-danger" %} ERROR:
+            {% elif message.tags == "alert-success" %} SUCCESS:
+            {% elif message.tags == "alert-warning" %} WARNING:
+            {% elif message.tags == "alert-info" %} INFO: {% endif %}
+        </strong><span>{{message}}</span>
+        </div>
+  {% endfor%}
+  <script>
+      var close = document.getElementsByClassName("closebtn");
+      var i;
+      for (i = 0; i < close.length; i++) {
+        close[i].onclick = function(){
+          var div = this.parentElement;
+          div.style.opacity = "0";
+          setTimeout(function(){ div.style.display = "none"; }, 600);
+        }
+      }
+      
+  </script>
+{% endif%}
+
+
+
+
+
+
+   <p>Please register here</p>
+
+
+   <div class="inbox">
+    <h1>Sign Up</h1>
+    <form method="post" action="">
+      {% csrf_token %}
+    Username: <input type="text" id="username" name="username"><br>
+    Email Address: <input type="email"  id="email" name="email" required ><br>
+    Password: <input type="password" minlength="8" id="pass1" name="pass1" required><br>
+    Confirm Password: <input type="password" id="pass2" name="pass2" required><br>
+    <button type="submit" >Register</button>
+    </form>
+    <p class="p1">Already have a account</p>
+    <button onclick="history.back()">Login Here</button></a>
+   </div>
+
+
+</body>
+</html>

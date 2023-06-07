@@ -1,0 +1,131 @@
+
+<!DOCTYPE html>
+{% load static %}
+<html>
+<head>
+		<title>Home</title>
+		<link rel="stylesheet" href="{% static 'HOME.css' %}?{% now "U" %}">
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<ul>
+	<li><a class="active" href="#home">Home</a></li>
+	<li><a href="contact">Contact</a></li>
+	<li><a href="about">About</a></li>
+</ul>
+
+
+
+
+
+
+
+{% if messages%}
+{% for message in messages %}
+		<div id="alert" class="{{message.tags}}">
+				<span class="closebtn">&times;</span>  
+				<strong>
+					{% if message.tags == "alert-danger" %} ERROR:
+					{% elif message.tags == "alert-success" %} SUCCESS:
+					{% elif message.tags == "alert-warning" %} WARNING:
+					{% elif message.tags == "alert-info" %} INFO: {% endif %}
+			</strong><span>{{message}}</span>
+			</div>
+{% endfor%}
+<script>
+		var close = document.getElementsByClassName("closebtn");
+		var i;
+		for (i = 0; i < close.length; i++) {
+			close[i].onclick = function(){
+				var div = this.parentElement;
+				div.style.opacity = "0";
+				setTimeout(function(){ div.style.display = "none"; }, 600);
+			}
+		}
+</script>
+{% endif%}
+
+
+
+<h1>Welcome to Agrolect</h1>
+<marquee class="move"> We strive to make your life better!!</marquee>
+
+<div class="box">
+<p class="Continent">Select the Continent</p>
+<form method="POST" action="">
+	{% csrf_token %}
+	<select class="gagan" id="CNT1" name="CNT1">
+	<option value="" disabled>Select your option</option>
+	<option>Asia </option>
+	<option>North-America</option>
+	</select>
+	<button type="submit">Press</button><br>
+</form>
+
+
+
+<form class="cnt" method="POST">
+	{% csrf_token %}
+	<select class="gagan1" id="countries" name="countries">
+<option value="" disabled>Select your option</option>
+{% for i in li%}
+<option>{{i}}</option>
+{% endfor %}
+</select>
+<button type="submit">Press</button><br>
+</form>
+
+
+
+<form method="POST">
+	{% csrf_token %}
+	<select class="gagangay" name="cities" id="cities">
+
+<option value="" disabled>Select your option</option>
+{% for i in li1%}
+<option>{{i}}</option>
+{% endfor %}
+</select>
+<button type="submit">Press</button><br>
+</form>
+</div>
+
+<div class="signout">
+<input type=button onClick="location.href='../authenticate/signout'" value="SIGN OUT">
+</div>
+
+<div class="container1">
+{% for i,j,num,g in mylist %}
+<div class="MAIN-list" id="KK{{num}}">
+	<label for="touch{{num}}"><span class="title-list"><span class="crop-name">{{i}}</span>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<span class="Grade-name">{{j}}</span></span></label>               
+	<input class="check" type="checkbox" id="touch{{num}}"> 
+	<ul class="slide" id="slide">
+	<p style="color: white;">The Data is displayed in the order Humidity, PH, Temperature</p>
+	{% for y in g %}
+	  <li>{{y}}</li>
+	{% endfor %}
+	</ul>
+</div> 
+{% endfor %}
+
+
+
+<script>
+	function clearContent(){
+	for (let i=1 ;i<6;i++){
+	var name = 'KK'+ String(i)
+	document.getElementById(name).innerHTML = '';
+	}
+	document.getElementById("BUTT").style.display='none';
+}
+</script>
+
+<button id="BUTT" onClick=clearContent()>CLEAR DATA</button>
+
+</div>
+
+</body>
+</html>

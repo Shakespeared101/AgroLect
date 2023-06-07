@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+{% load static %}
+<head>
+    <title>Home Page</title>
+    <link rel="stylesheet" href="{% static 'home.css' %}">
+</head>
+
+
+<body class="body">
+    <h3>HOME PAGE</h3><br>
+    {% if user.is_authenticated %}
+        <h3> HELLO {{user}}<h3>
+        <h4>You're successfully logged in.</h4>
+        <input type=button onClick="location.href='../authenticate/signout'" value="SIGN OUT">
+    {% else %}
+        FUCK YOU!!!!
+    {% endif %}
+<br>
+
+<form method="post" action="">
+    {% csrf_token %}
+    Enter city: <input type="text" id="city" name="city"><br>
+    <button type="submit">Log In</button><br>
+</form>
+
+{% for i in li %}
+    {{i}}<br>
+{% endfor %}
+
+
+</body>

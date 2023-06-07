@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en" dir="ltr">
+  <head>
+    <link rel="stylesheet" href="{% static 'about.css' %}?{% now "U" %}">
+    <meta charset="utf-8">
+    <title></title>
+    <style >
+      body{
+        background: url(../BG.png) no-repeat center center fixed;
+        -webkit-background-size: cover;
+        -moz-background-size: cover;
+        -o-background-size: cover;
+        background-size: cover;
+        height: 100%;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+      }
+      ul {
+
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+        background-color: #333;
+      }
+
+      li {
+        float: left;
+      }
+
+      li a {
+        display: block;
+        color: white;
+        text-align: center;
+        padding: 14px 16px;
+        text-decoration: none;
+      }
+
+      li a:hover {
+        background-color: #111;
+      }
+      body{
+        text-align:center;
+      }
+      .move{
+        font-weight:bold;
+        font-size:20px;
+        color:#751443;
+      }
+      .content{
+        font-size: 20px;
+        text-align: center;
+      }
+      .box{
+        background:rgba(255, 255, 255,0.7);
+        width: 500px;
+        height: 400px;
+        position: absolute;
+        transform: translate(110%,25%);
+      }
+    </style>
+  </head>
+  <body>
+
+    <div class="navbar">
+      <ul>
+      <li><a class="active" href="../">Home</a></li>
+      <li><a href="../contact">Contact</a></li>
+      <li><a href="#about">About</a></li>
+      </ul>
+    </div>
+    <h1>AGROLECT</h1>
+    <marquee class="move">We strive to make your life better!!</marquee>
+    <div class="box">
+      <p class="content">In a recent initiative, six Vit first-year students founded Agrolect. Agrolect is designed to make the life of farmers living in different areas easier by providing information about the crops that can be grown in their respective areas. The program helps farmers understand what crops they should grow and what price they should get for them on the market. The main purpose of Agrolect is to find the location of the farmer and return the crop that's best suited to the location</p>
+    </div>
+
+  </body>
+</html>

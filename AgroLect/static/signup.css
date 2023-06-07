@@ -1,0 +1,110 @@
+body{
+    text-align: center;
+    font-family: 'Public Sans', sans-serif;
+}
+
+p{
+    font-size: 40px ;
+    margin-top: 0px;
+}
+.p1{
+    font-size: 20px;
+    margin-top: 20px;
+}
+html{
+  background: url(BG.png) no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  height: 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  font-weight: bold;
+}
+
+.inbox{
+    width: 350px;
+    height: 500px;
+    background:rgba(255, 255, 255,0.8);
+    color:black;
+    top: 50%;
+    left: 50%;
+    position: absolute;
+    transform: translate(-50%,-50%);
+    box-sizing: border-box;
+}
+.inbox input[type="Text"],[type="Password"],[type="email"]{
+    margin-bottom: 20px;
+    border: none;
+    border-bottom: 1px solid #fff;
+    background: transparent;
+    outline: none;
+    height: 20px;
+}
+.inbox input[type="submit"],[type="reset"]{
+    border-color: orange;
+    outline: none;
+    height: 30px;
+    border-radius: 50px;
+    background-color: orange;
+    color: #fff;
+    border: none;
+}
+.inbox input[type="reset"]{
+    margin-top: 30px;
+    margin-left: 20px;
+}
+.inbox input[type="submit"]:hover{
+    background-color: rgba(255, 166, 0, 0.812);
+}
+.inbox input[type="reset"]:hover{
+    background-color: rgba(255, 166, 0, 0.812);
+}
+button{
+    border-radius: 50px;
+    height: 30px;
+    border: navajowhite;
+    background-color: orange;
+    color: #fff;
+}
+button:hover{
+    background-color: rgba(255, 166, 0, 0.812);
+    color: #fff;
+    cursor: pointer;
+}
+
+.alert-danger{background-color: #f44336;}
+.alert-danger,.alert-info,.alert-success,.alert-warning{
+    padding: 20px;
+    color: white;
+    opacity: 1;
+    transition: opacity 0.6s;
+    margin: 7.5px;
+    justify-content: space-between;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 100;
+  }
+  
+  .alert-success {background-color: #04AA6D;}
+  .alert-info {background-color: #2196F3;}
+  .alert-warning {background-color: #ff9800;}
+  
+  .closebtn {
+    margin-left: 15px;
+    color: white;
+    font-weight: bold;
+    float: right;
+    font-size: 22px;
+    line-height: 20px;
+    cursor: pointer;
+    transition: 0.3s;
+  }
+  
+  .closebtn:hover {
+    color: black;
+  }

@@ -1,0 +1,59 @@
+{% load static %}
+<!DOCTYPE html>
+<head>
+    <title>Login Page</title>
+    <meta charset="utf-8">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com"> 
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> 
+    <link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@100&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'login.css' %}?{% now "U" %}">
+</head>
+<body>
+<div class="MAIN">
+    {% if messages%}
+    {% for message in messages %}
+        <div id="alert" class="{{message.tags}}">
+            <span class="closebtn">&times;</span> 
+            <strong>
+                {% if message.tags == "alert-danger" %} ERROR:
+                {% elif message.tags == "alert-success" %} SUCCESS:
+                {% elif message.tags == "alert-warning" %} WARNING:
+                {% elif message.tags == "alert-info" %} INFO: {% endif %}
+            </strong><span>{{message}}</span>
+          </div>
+    {% endfor%}
+    <script>
+        var close = document.getElementsByClassName("closebtn");
+        var i;
+        for (i = 0; i < close.length; i++) {
+          close[i].onclick = function(){
+            var div = this.parentElement;
+            div.style.opacity = "0";
+            setTimeout(function(){ div.style.display = "none"; }, 600);
+          }
+        }
+    </script>
+{% endif%}
+
+
+    <div class="title">
+        <p>AGROLECT</p>
+    </div>
+    <div class="container">
+        <p>Sign in</p>
+        <form method="post" action="">
+            {% csrf_token %}
+            Username:<input type="text" id="username" name="username"><br>
+            Password:<input type="password" id="pass1" name="pass1" required><br>
+            <button class="button1" type="submit">Log In</button><br>
+        </form>
+    
+        <button class="button1" type=button onClick="location.href='../signup'">Create New Account</button>    <br>
+
+    </div>
+<br>
+</div>
+</body>
+</html>
